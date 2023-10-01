@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:dio/dio.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:news_app/model/news_response_model.dart';
@@ -21,6 +23,7 @@ class AppController extends ChangeNotifier {
     try{
       final response = await getData(url, "");
       if(response.statusCode == 200){
+        log(response.data);
         return NewsDataModel.fromJson(response.data);
       }
 
