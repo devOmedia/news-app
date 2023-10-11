@@ -7,7 +7,7 @@ import 'package:riverpod/riverpod.dart';
 
 class AppController extends ChangeNotifier {
   Dio dio = Dio();
-  final url = "https://newsapi.org/v2/everything?q=tesla&from=2023-08-29&sortBy=publishedAt&apiKey=83b2078be3aa4e0cb6342eac00a5fd26";
+  final url = "https://newsapi.org/v2/everything?q=tesla&from=2023-09-01&sortBy=publishedAt&apiKey=83b2078be3aa4e0cb6342eac00a5fd26";
 
   Future<Response> getData(String url, String token) => dio.get(
         url,
@@ -23,7 +23,7 @@ class AppController extends ChangeNotifier {
     try{
       final response = await getData(url, "");
       if(response.statusCode == 200){
-        log(response.data);
+
         return NewsDataModel.fromJson(response.data);
       }
 

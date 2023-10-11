@@ -13,6 +13,7 @@ class HomeScreen extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final Size size = MediaQuery.of(context).size;
     return Scaffold(
+      appBar: AppBar(),
       body: RefreshIndicator(
         onRefresh: () async {
           ref.refresh(controller);
@@ -39,8 +40,9 @@ class HomeScreen extends ConsumerWidget {
                           children: [
                             ///IMAGE
                             CachedNetworkImage(
-                              imageUrl: "http://via.placeholder.com/200x150",
-                              //data?.articles[index].urlToImage ?? "",
+                              imageUrl:
+                              //"http://via.placeholder.com/200x150",
+                              data?.articles[index].urlToImage ?? "",
                               imageBuilder: (context, imageProvider) =>
                                   Container(
                                 height: size.height * 0.2,
@@ -65,10 +67,8 @@ class HomeScreen extends ConsumerWidget {
                               children: [
                                 SizedBox(
                                   width: size.width * 0.4,
-                                  child: const Text(
-                                    // data?.articles[0].title ?? "",
-                                    "dnadkn idasndkan dnadnas dioadasndof asksanfioa fas"
-                                    "fnkasnfioa fnioa f afksnafaosi  asfnafs",
+                                  child:  Text(
+                                     data?.articles[0].title ?? "",
                                     maxLines: 4,
                                     overflow: TextOverflow.ellipsis,
                                     style: TextStyle(
@@ -80,11 +80,7 @@ class HomeScreen extends ConsumerWidget {
                                 SizedBox(
                                   width: size.width * 0.4,
                                   child: Text(
-                                    // data?.articles[0].description ?? "",
-                                    "dnadkn idasndkan dnadnas dioadasndof asksanfioa fas"
-                                    "fnkasnfioa fnioa f afksnafaosi  asfnafs"
-                                    "jsnfknanknasknfknas asknksanfa"
-                                    "snakfnknafnkfanfkank",
+                                     data?.articles[0].description ?? "",
                                     overflow: TextOverflow.ellipsis,
                                     maxLines: 2,
                                   ),
